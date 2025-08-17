@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Library</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Page 1: Login Screen -->
+    <div id="loginPage" class="page">
+        <h1>Enter Your Name</h1>
+        <input type="text" id="nameInput" placeholder="Enter your name">
+        <button id="signInBtn">Sign In</button>
+    </div>
+
+    <!-- Page 2: Sections -->
+    <div id="homePage" class="page hidden">
+        <h1>Welcome <span id="userName"></span>!</h1>
+
+        <!-- Recommendations Section -->
+        <section class="slide-section hidden" id="recommendationsSection">
+            <h2>You Might Like These</h2>
+            <div class="rec-wrapper">
+              <button class="scroll-btn" id="scrollLeft">‹</button>
+              <div class="books-grid-horizontal" id="recommendationsGrid"></div>
+              <button class="scroll-btn" id="scrollRight">›</button>
+            </div>
+        </section>
+
+
+
+        <!-- Thriller Books -->
+        <section class="slide-section">
+            <h2>Thriller Books</h2>
+            <div class="books-grid" id="thrillerBooksGrid"></div>
+        </section>
+
+        <!-- Self-Help Books -->
+        <section class="slide-section">
+            <h2>Self-Help Books</h2>
+            <div class="books-grid" id="selfHelpBooksGrid"></div>
+        </section>
+
+        <!-- Romance / Love Books -->
+        <section class="slide-section">
+            <h2>Romance / Love Books</h2>
+            <div class="books-grid" id="romanceBooksGrid"></div>
+        </section>
+    </div>
+
+    <!-- Book Details Modal -->
+    <div id="bookDetailsModal" class="hidden">
+        <div class="modal-content">
+            <span id="closeModal">&times;</span>
+            <img id="bookPic" src="" alt="Book Cover">
+            <h2 id="bookName"></h2>
+            <p id="bookAuthor"></p>
+            <p id="bookDescription"></p>
+            <div id="likeDislikeContainer" class="like-dislike-row">
+                <button id="likeButton" class="like-btn" title="Like">
+                    <span id="likeIcon">👍</span>
+                    <span id="likeCount">0</span>
+                </button>
+                <button id="dislikeButton" class="dislike-btn" title="Dislike">
+                    <span id="dislikeIcon">👎</span>
+                    <span id="dislikeCount">0</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Logout Button -->
+<button id="logoutBtn" class="floating-btn logout-btn hidden">Logout</button>
+
+<!-- Dark Mode Toggle Button -->
+<button id="darkModeBtn" class="floating-btn top-right-btn">🌙</button>
+
+
+
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+<!-- Firebase Config -->
+<script src="config.js"></script>
+
+    <!-- App Logic -->
+<script src="script.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,297 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.page {
+    text-align: center;
+    padding: 50px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+#loginPage input {
+    padding: 10px;
+    font-size: 18px;
+    width: 250px;
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#loginPage button {
+    padding: 10px;
+    font-size: 18px;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.2s;
+}
+#loginPage button:hover {
+    background-color: #388e3c;
+}
+
+.slide-section {
+    background: #fff;
+    border-radius: 12px;
+    margin: 32px auto;
+    max-width: 1200px;
+    padding: 14px 0 0 0;
+    box-shadow: 0 3px 16px rgba(0,0,0,0.06);
+}
+.slide-section h2 {
+    font-size: 1.5em;
+    margin-bottom: 0;
+    color: #388e3c;
+}
+
+/* Regular books grid (Thriller, Self-help, Romance) */
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px 0 10px 0;
+    justify-items: center;
+}
+
+/* Recommendation wrapper */
+.rec-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+/* Horizontal scroll for recommendations */
+.books-grid-horizontal {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 15px;
+    padding: 10px;
+    max-width: 80%;
+}
+
+.books-grid-horizontal::-webkit-scrollbar {
+    display: none;
+}
+
+.books-grid-horizontal .book-card {
+    flex: 0 0 auto;
+    width: 210px;
+    min-height: 260px;
+}
+
+.scroll-btn {
+    background: #333;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 20px;
+    margin: 0 5px;
+    z-index: 2;
+}
+.scroll-btn:hover {
+    background: #555;
+}
+
+.book-card {
+    position: relative;
+    background-color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    min-height: 260px;
+    width: 95%;
+    max-width: 210px;
+}
+.book-card:hover {
+    transform: scale(1.05);
+}
+.book-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.book-card h3 {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.65);
+    padding: 8px;
+    font-size: 18px;
+    border-radius: 5px;
+    margin: 0;
+}
+
+/* Modal - fully scrollable */
+/* Modal overlay */
+#bookDetailsModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    min-height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;  /* align modal from top */
+    padding: 40px 0;          /* spacing from top/bottom */
+    z-index: 1000;
+    overflow: visible;         /* don't scroll */
+}
+
+/* Modal content */
+.modal-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    width: 90%;
+    max-width: 600px;      /* wider to accommodate text */
+    position: relative;
+    max-height: none;       /* remove height limit */
+    overflow: visible;      /* show all content */
+}
+
+/* Book description */
+#bookDescription {
+    display: block;
+    margin-top: 12px;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #444;
+    text-align: left;
+    padding: 6px 10px;
+    background: #fafafa;
+    border-radius: 6px;
+    max-height: none;       /* show full height */
+    overflow: visible;      /* no scroll */
+}
+
+#bookPic {
+    width: 200px;
+    height: 300px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    object-fit: cover;
+    background: #ececec;
+}
+
+#closeModal {
+    position: absolute;
+    top: 10px;
+    right: 16px;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+}
+#closeModal:hover {
+    color: #e53935;
+}
+
+
+/* Like/Dislike Row */
+.like-dislike-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 18px;
+    width: 140px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.like-btn, .dislike-btn {
+    background: #f6f6f6;
+    border: none;
+    border-radius: 60px;
+    padding: 8px 14px;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: background 0.16s;
+}
+.like-btn:hover {
+    background: #d0fad8;
+}
+.dislike-btn:hover {
+    background: #fcd8d8;
+}
+#likeIcon {
+    font-size: 22px;
+    color: #2196f3;
+}
+#dislikeIcon {
+    font-size: 22px;
+    color: #e53935;
+}
+#likeCount, #dislikeCount {
+    font-size: 17px;
+    min-width: 18px;
+}
+
+.floating-btn {
+    position: fixed;
+    z-index: 2000;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    color: white;
+    background-color: #4CAF50;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: background 0.2s ease;
+}
+.floating-btn:hover {
+    background-color: #388e3c;
+}
+.logout-btn {
+    bottom: 20px;
+    right: 20px;
+}
+.top-right-btn {
+    top: 20px;
+    right: 20px;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background-color: #121212;
+    color: white;
+}
+body.dark-mode .slide-section {
+    background: #1e1e1e;
+}
+body.dark-mode #bookDescription {
+    background: #333;
+    color: #ddd;
+}
+body.dark-mode .book-card {
+    background-color: #2c2c2c;
+    color: white;
+}
+body.dark-mode .book-card h3 {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+body.dark-mode .modal-content {
+    background-color: #2c2c2c;
+    color: white;
+}
