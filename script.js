@@ -27,7 +27,7 @@ const selfHelpBooks = [
     { name: "Ikigai", author: "Héctor García & Francesc Miralles", genre: "Self-Help", description: "Discover your purpose in life.", pic: "sh_b1.jpeg" },
     { name: "The Psychology of Money", author: "Morgan Housel", genre: "Self-Help", description: "Insights into financial behavior.", pic: "sh_b2.jpeg" },
     { name: "Atomic Habits", author: "James Clear", genre: "Self-Help", description: "Small habits that change your life.", pic: "sh_b3.jpg" },
-    { name: "The Power of Now", author: "Eckhart Tolle", genre: "Self-Help", description: "Living in the present moment.", pic: "sh_b4.jpg" }
+    { name: "The Art of Letting Go", author: "Nick Trenton", genre: "Self-Help", description: "If you are always on edge and unable to relax, this book is for you.", pic: "sh_b4.jpg" }
 ];
 
 // Romance / Love Books (added rl_b3 and rl_b4)
@@ -318,3 +318,4 @@ darkModeBtn.addEventListener("click", () => {
     document.body.classList.toggle("dark-mode", darkMode);
     darkModeBtn.textContent = darkMode ? "☀️" : "🌙";
 });
+
